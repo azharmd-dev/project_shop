@@ -10,7 +10,7 @@ Logs_Folder="/var/log/shell-script" #Logs will be stored in this directory
 Script_Name=$(echo $0 | cut -d "." -f1)
 SCRIPT_DIR=$PWD
 MONGODB_HOST=mongodb.azharprojects.site
-$Log_File="$Logs_Folder/$Script_Name.log" 
+Log_File="$Logs_Folder/$Script_Name.log" 
 #Log will be saved with the file name as /var/log/shell-script/02-mongodb.log
 
 mkdir -p $Logs_Folder 
