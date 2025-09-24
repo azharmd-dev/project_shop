@@ -29,7 +29,7 @@ Validate(){
     fi
 }
 
-cp project_shop/mongo.repo /etc/yum.repos.d/mongo.repo
+cp mongo.repo /etc/yum.repos.d/mongo.repo
 Validate $? "Adding Mongorepo"
 
 dnf install mongodb-org -y &>>$Log_File
