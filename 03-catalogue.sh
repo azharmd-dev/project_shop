@@ -46,7 +46,7 @@ if [ $? -ne 0 ]; then
     useradd --system --home /app --shell /sbin/nologin --comment "roboshop system user" roboshop &>>$Log_File
     VALIDATE $? "Creating System User"
 else
-    echo -e "user already exits .. $Y SKIPPING$n"
+    echo -e "user already exits .. $Y SKIPPING$N"
 fi
 
 mkdir -p /app
@@ -92,7 +92,3 @@ fi
 
 systemctl restart catalogue
 VALIDATE $? "Restarted catalogue"
-
-Net_stat=$(netstat -lntp)
-
-echo $Net_stat
