@@ -93,3 +93,6 @@ fi
 systemctl restart catalogue
 VALIDATE $? "Restarted catalogue"
 
+Net_stat=$(netstat -lntp)
+
+echo $Net_stat
