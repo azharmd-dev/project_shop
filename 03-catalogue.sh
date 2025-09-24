@@ -17,7 +17,7 @@ mkdir -p $Logs_Folder
 echo "Scrpit execution started at $(date)::" | tee -a $Log_File
 
 if [ $Userid -ne 0 ]; then
-    echo -e "User required root access"
+    echo "User required root access"
     exit 1
 fi
 
