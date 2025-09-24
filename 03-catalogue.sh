@@ -14,7 +14,7 @@ Log_File="$Logs_Folder/$Script_Name.log"
 #Log will be saved with the file name as /var/log/shell-script/02-mongodb.log
 
 mkdir -p $Logs_Folder 
-echo "Scrpit execution started at $(date)::" | tee -a $Log_File
+echo "Scrpit execution started at $(date)" | tee -a $Log_File
 
 if [ $Userid -ne 0 ]; then
     echo "User required root access"
