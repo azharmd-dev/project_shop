@@ -25,7 +25,7 @@ Validate(){
         echo -e "Installation $2 is $R FAILURE $N" | tee -a $Log_File
         exit 1
     else
-        echo -e "Installation $2 is $R SUCCESS $N" | tee -a $Log_File
+        echo -e "Installation $2 is $G SUCCESS $N" | tee -a $Log_File
     fi
 }
 
