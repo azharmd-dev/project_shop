@@ -49,7 +49,7 @@ systemctl enable catalogue &>>$Log_File
 echo -e "Catalogue application setup ... $G SUCCESS $N"
 
 cp $Script_Dir/mongo.repo /etc/yum.repos.d/mongo.repo
-dnf install mongodb-mongoshsfds -y &>>$Log_File
+dnf install mongodb-mongosh -y &>>$Log_File
 
 INDEX=$(mongosh mongodb.azharprojects.site --quiet --eval "db.getMongo().getDBNames().indexOf('catalogue')")
 if [ $INDEX -le 0 ]; then
