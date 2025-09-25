@@ -29,9 +29,6 @@ Validate(){
     fi
 }
 
-dnf list module redis  &>>$Log_File
-Validate $? "Checking redis installed or not"
-
 dnf module disable redis -y  &>>$Log_File
 Validate $? "disabling redis"    
 
