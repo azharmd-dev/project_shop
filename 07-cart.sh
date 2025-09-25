@@ -66,10 +66,10 @@ cp $Script_Dir/cart.service /etc/systemd/system/cart.service &>>$Log_File
 Validate $? "Creating systemctl cart service"
 
 systemctl daemon-reload
-systemctl enable cart 
+systemctl enable cart  &>>$Log_File
 Validate $? "Enabling cart service"
 
-systemctl start cart
+systemctl start cart &>>$Log_File
 Validate $? "Starting cart service"
 
 End_Time=$(date +%s)
