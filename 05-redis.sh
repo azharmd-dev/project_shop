@@ -31,14 +31,13 @@ Validate(){
 
 dnf list module redis  &>>$Log_File
 Validate $? "Checking redis installed or not"
-if [ $? -eq 0 ]; then
-    dnf module disable redis -y  &>>$Log_File
-    Validate $? "disabling redis"
 
-    else 
-    dnf module enable redis:7 -y  &>>$Log_File
-    Validate $? "enabling redis version 7"
-fi
+dnf module disable redis -y  &>>$Log_File
+Validate $? "disabling redis"    
+
+dnf module enable redis:7 -y  &>>$Log_File
+Validate $? "enabling redis version 7"
+
 dnf install redis -y  &>>$Log_File
 Validate $? "Installing redis"
 
