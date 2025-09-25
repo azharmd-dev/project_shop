@@ -40,6 +40,7 @@ systemctl start mysqld &>>$Log_File
 Validate $? "Starting MYSQL server"
 
 mysql_secure_installation --set-root-pass &>>$Log_File #RoboShop@1 
+echo "Enter Password"
 read -s Password
 Validate $? "Setting password"
 
