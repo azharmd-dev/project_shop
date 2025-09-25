@@ -72,3 +72,6 @@ Validate $? "Enabling cart service"
 systemctl start cart
 Validate $? "Starting cart service"
 
+End_Time=$(date +%s)
+Total_Time=$(($End_Time - $Start_Time))
+echo -e "Total time taken to execute script $Y $Total_Time $N in sec"
