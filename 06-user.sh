@@ -34,7 +34,7 @@ dnf module disable nodejs -y &>> $Log_File
 Validate $? "Disabling NodeJS"
 
 dnf module enable nodejs:20 -y &>> $Log_File
-Validate $? "Disabling NodeJS" 
+Validate $? "Enabling NodeJS" 
 
 dnf install nodejs -y &>> $Log_File
 Validate $? "Installing NodeJS" 
@@ -49,8 +49,14 @@ fi
 mkdir -p /app &>> $Log_File
 
 curl -L -o /tmp/user.zip https://roboshop-artifacts.s3.amazonaws.com/user-v3.zip  &>> $Log_File
-Validate $? "Downloading the code"
+Validate $? "Downloading the user application"
+
 cd /app 
+Validate $? "Changing to app directory"
+
+rm -rf /app/*
+VALIDATE $? "Removing existing code"
+
 unzip /tmp/user.zip &>> $Log_File
 Validate $? "Unzippping the downloded file"
 npm install &>> $Log_File
