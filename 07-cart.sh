@@ -48,7 +48,7 @@ id roboshop &>>$Log_File
         echo -e "Sytem user already exist $Y SKIPPING$N"
     fi
 
-mkdir /app &>>$Log_File
+mkdir -p /app &>>$Log_File
 Validate $? "Creating application directory"
 
 curl -L -o /tmp/cart.zip https://roboshop-artifacts.s3.amazonaws.com/cart-v3.zip &>>$Log_File
@@ -56,6 +56,9 @@ Validate $? "Downloading cart application"
 
 cd /app &>>$Log_File
 Validate $? "Chaninging to app directory"
+
+rm -rf /app/*
+Validate $? "Removing existing code"
 
 unzip /tmp/cart.zip &>>$Log_File
 Validate $? "Unzipping the file"
