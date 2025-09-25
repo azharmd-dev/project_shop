@@ -55,7 +55,7 @@ cd /app
 Validate $? "Changing to app directory"
 
 rm -rf /app/*
-VALIDATE $? "Removing existing code"
+Validate $? "Removing existing code"
 
 unzip /tmp/user.zip &>> $Log_File
 Validate $? "Unzippping the downloded file"
