@@ -45,6 +45,7 @@ id roboshop &>>$Log_File
         Validate $? "Creating a system user"
     else 
         echo -e "Sytem user already exist $Y SKIPPING$N"
+    fi
 
 mkdir /app &>>$Log_File
 Validate $? "Creating application directory"
