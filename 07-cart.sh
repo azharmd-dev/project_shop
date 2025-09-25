@@ -11,6 +11,7 @@ Logs_Folder="/var/log/shell-script"
 Script_Name=$( echo $0 | cut -d "." -f1 )
 Log_File=$Logs_Folder/$Script_Name.log 
 Script_Dir=$PWD
+Start_Time=$(date +%s)
 
 mkdir -p $Logs_Folder
 echo "Script execution started at $(date)" | tee -a $Log_File
@@ -71,3 +72,7 @@ Validate $? "Enabling cart service"
 
 systemctl start cart &>>$Log_File
 Validate $? "Starting cart service"
+
+End_Time=$(date +%s)
+Total_Time=$(($End_Time - $Start_Time))
+echo -e "Total time taken to execute the script $Y $Total_Time $N in sec"
