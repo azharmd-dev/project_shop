@@ -39,10 +39,8 @@ Validate $? "Enabling MYSQL server"
 systemctl start mysqld &>>$Log_File
 Validate $? "Starting MYSQL server"
 
-mysql_secure_installation --set-root-pass &>>$Log_File #RoboShop@1 
-echo "Enter Password"
-read -s Password
-Validate $? "Setting password"
+mysql_secure_installation --set-root-pass RoboShop@1 &>>$Log_File
+Validate $? "Setting up Root password"
 
 End_Time=$(date +%s)
 Total_Time=$(($End_Time - $Start_Time))
