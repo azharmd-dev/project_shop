@@ -56,7 +56,7 @@ Validate $? "Unzipping the frontend code"
 
 rm -rf /etc/nginx/nginx.conf #To removing previous nginx configuration
 cp $Script_Dir/nginx.conf /etc/nginx/nginx.conf
-VALIDATE $? "Copying nginx.conf"
+Validate $? "Copying nginx.conf"
 
 systemctl restart nginx 
 
