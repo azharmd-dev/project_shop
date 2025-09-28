@@ -52,7 +52,7 @@ Validate $? "Starting Rabbitmq server"
 
 rabbitmqctl add_user roboshop roboshop123
 rabbitmqctl set_permissions -p / roboshop ".*" ".*" ".*" &>>$Log_File
-Validate $? "Setting up permission user"
+Validate $? "Setting up user permission"
 
 End_Time=$(date +%s)
 Total_Time=$(($End_Time - $Start_Time))
