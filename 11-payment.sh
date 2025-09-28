@@ -67,3 +67,6 @@ Validate $? "Enabling payment service"
 systemctl start payment
 Validate $? "Starting payment service"
 
+End_Time=$(date +%s)
+Total_Time=$(($End_Time - $Start_Time))
+echo -e "Total time to execute this script $Y $Total_Time $N in sec"
