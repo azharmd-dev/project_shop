@@ -72,14 +72,18 @@ Validate $? "Staring the shipping services"
 dnf install mysql -y &>>$Log_File
 Validate $? "Installing MYSQL Client"
 
-mysql -h $MYSQL_Host -uroot -pRoboShop@1 -e 'use cities' &>>$LOG_FILE
+mysql -h $MYSQL_Host -uroot -pRoboShop@1 -e 'use cities' &>$Log_File
 if [ $? -ne 0 ]; then
-    mysql -h $MYSQL_Host -uroot -pRoboShop@1 < /app/db/schema.sql &>>$LOG_FILE
-    mysql -h $MYSQL_Host -uroot -pRoboShop@1 < /app/db/app-user.sql  &>>$LOG_FILE
-    mysql -h $MYSQL_Host -uroot -pRoboShop@1 < /app/db/master-data.sql &>>$LOG_FILE
+    mysql -h $MYSQL_Host -uroot -pRoboShop@1 < /app/db/schema.sql &>>$Log_File
+    mysql -h $MYSQL_Host -uroot -pRoboShop@1 < /app/db/app-user.sql  $Log_File
+    mysql -h $MYSQL_Host -uroot -pRoboShop@1 < /app/db/master-data.sql $Log_File
 else
     echo -e "Shipping data is already loaded ... $Y SKIPPING $N"
 fi
 
 systemctl restart shipping
 Validate $? "Restarted SHIPPING Service"
+
+End_Time=$(date +%s)
+Total_Time=$(($End_Time - $Start_Time))
+echo -e "Total time to execute this script $Y $Total_Time $N in sec"
