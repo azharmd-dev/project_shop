@@ -60,7 +60,7 @@ Validate $? "Installing the dependencies"
 mv target/shipping-1.0.jar shipping.jar  &>>$Log_File
 Validate $? "Changing the name of shipping service"
 
-cp ./shipping.service /etc/systemd/system/shipping.service &>>$Log_File
+cp $Script_Dir/shipping.service /etc/systemd/system/shipping.service &>>$Log_File
 Validate $? "Creating the System services"
 
 systemctl daemon-reload &>>$Log_File
