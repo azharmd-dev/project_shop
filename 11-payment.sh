@@ -61,7 +61,7 @@ cp $Script_Dir/payment.service /etc/systemd/system/payment.service
 Validate $? "Copying the payment repo"
 
 systemctl daemon-reload
-systemctl enable payment 
+systemctl enable payment &>>$Log_File
 Validate $? "Enabling payment service"
 
 systemctl start payment
