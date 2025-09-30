@@ -78,8 +78,8 @@ Validate $? "Installing MYSQL Client"
 mysql -h $MYSQL_Host -uroot -pRoboShop@1 -e 'use cities' &>$Log_File
 if [ $? -ne 0 ]; then
     mysql -h $MYSQL_Host -uroot -pRoboShop@1 < /app/db/schema.sql &>>$Log_File
-    mysql -h $MYSQL_Host -uroot -pRoboShop@1 < /app/db/app-user.sql  $Log_File
-    mysql -h $MYSQL_Host -uroot -pRoboShop@1 < /app/db/master-data.sql $Log_File
+    mysql -h $MYSQL_Host -uroot -pRoboShop@1 < /app/db/app-user.sql  &>>$Log_File
+    mysql -h $MYSQL_Host -uroot -pRoboShop@1 < /app/db/master-data.sql &>>$Log_File
 else
     echo -e "Shipping data is already loaded ... $Y SKIPPING $N"
 fi
